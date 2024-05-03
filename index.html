@@ -33,10 +33,10 @@
             <div class="bar"></div>
         </div>
         <div class="botones-dias" id="botones-dias">
+            <button onclick="mostrarTabla('jueves')">Activación</button>
             <button onclick="mostrarTabla('lunes')">Lunes</button>
             <button onclick="mostrarTabla('martes')">Martes</button>
             <button onclick="mostrarTabla('miercoles')">Miércoles</button>
-            <button onclick="mostrarTabla('Jueves')">Jueves</button>
             <button onclick="mostrarTabla('informacion')">Mi Información</button>
             <button onclick="mostrarTabla('recomendacion')">Recomendaciones</button>
 
@@ -344,93 +344,104 @@
         </div>
     </div>
 </div>
-<div id="tabla-Jueves" class="tabla-rutina">
-  <h2>Jueves</h2>
+
+<div id="tabla-jueves" class="tabla-rutina">
+  <h2>Activación</h2>
   <div id="temporizador">
     <h2>Temporizador de Planchas</h2>
     <p id="tiempo-restante">1:00</p>
+    <button id="boton-disminuir" onclick="disminuirTiempo()">-</button>
+    <button id="boton-incrementar" onclick="incrementarTiempo()">+</button>
     <button id="boton-temporizador" onclick="iniciarTemporizador()">Iniciar</button>
 </div>
 
   <div class="ejercicio">
-      <div class="detalle-ejercicio">
-          <h3>Crunches</h3>
+    <div class="detalle-ejercicio">
+        <h3>Planchas frontales</h3>
           <p>Series: 4</p>
-          <p>Repeticiones: 15-20</p>
+          <p>Repeticiones: 30 - 45 segundos</p>
       </div>
-  </div>
-  <div class="ejercicio">
-      <div class="detalle-ejercicio">
-          <h3>Plancha lateral</h3>
-          <p>Series: 4</p>
-          <p>Repeticiones: 30-45 segundos</p>
-      </div>
-  </div>
-  <div class="ejercicio">
-      <div class="detalle-ejercicio">
-          <h3>Elevaciones de piernas colgadas</h3>
-          <p>Series: 4</p>
-          <p>Repeticiones: 10-12</p>
-      </div>
-  </div>
-  <div class="ejercicio">
-      <div class="detalle-ejercicio">
-          <h3>Twist ruso con peso</h3>
-          <p>Series: 4</p>
-          <p>Repeticiones: 15-20 por lado</p>
-      </div>
-  </div>
-  <div class="ejercicio">
-      <div class="detalle-ejercicio">
-          <h3>Crunches en máquina</h3>
-          <p>Series: 4</p>
-          <p>Repeticiones: 15-20</p>
-      </div>
-  </div>
-  <div class="ejercicio">
-      <div class="detalle-ejercicio">
-          <h3>Flexiones de tronco en suelo</h3>
-          <p>Series: 4</p>
-          <p>Repeticiones: al fallo</p>
-      </div>
-  </div>
-  <div class="ejercicio">
-      <div class="detalle-ejercicio">
-          <h3>Rotación de tronco con barra</h3>
-          <p>Series: 4</p>
-          <p>Repeticiones: 15-20 por lado</p>
-      </div>
-  </div>
-  <div class="ejercicio">
-      <div class="detalle-ejercicio">
-          <h3>Crunches en polea alta</h3>
-          <p>Series: 4</p>
-          <p>Repeticiones: 15-20</p>
-      </div>
-  </div>
-  <div class="ejercicio">
-      <div class="detalle-ejercicio">
-          <h3>Plancha con elevación de pierna</h3>
-          <p>Series: 4</p>
-          <p>Repeticiones: 10-12 por lado</p>
-      </div>
-  </div>
-  <div class="ejercicio">
-      <div class="detalle-ejercicio">
-          <h3>Crunches invertidos</h3>
-          <p>Series: 4</p>
-          <p>Repeticiones: 15-20</p>
-      </div>
-  </div>
-  <div class="ejercicio">
-      <div class="detalle-ejercicio">
-          <h3>Crunches con bola suiza</h3>
-          <p>Series: 4</p>
-          <p>Repeticiones: 15-20</p>
-      </div>
-  </div>
+    <div class="imagen-ejercicio">
+        <img src="planchas.jpg" alt="Plancha">
+    </div>
+    <div class="marcado-ejercicio">
+        <input type="checkbox" id="ejercicio11" onchange="marcarEjercicio('ejercicio11')">
+        <label for="ejercicio11"></label>
+    </div>
 </div>
 
+
+<div class="ejercicio">
+    <div class="detalle-ejercicio">
+        <h3>Planchas laterales</h3>
+          <p>Series: 4 (2 por lado)</p>
+          <p>Repeticiones: 30 - 45 segundos</p>
+      </div>
+    <div class="imagen-ejercicio">
+        <img src="plancha-lateral.jpg" alt="Plancha">
+    </div>
+    <div class="marcado-ejercicio">
+        <input type="checkbox" id="ejercicio12" onchange="marcarEjercicio('ejercicio12')">
+        <label for="ejercicio12"></label>
+    </div>
+</div>
+<div class="ejercicio">
+    <div class="detalle-ejercicio">
+        <h3>Superman</h3>
+          <p>Series: 4 (2 por lado)</p>
+          <p>Repeticiones: 12-15 por lado</p>
+      </div>
+    <div class="imagen-ejercicio">
+        <img src="superman.gif" alt="Superman">
+    </div>
+    <div class="marcado-ejercicio">
+        <input type="checkbox" id="ejercicio13" onchange="marcarEjercicio('ejercicio13')">
+        <label for="ejercicio13"></label>
+    </div>
+</div>
+<div class="ejercicio">
+    <div class="detalle-ejercicio">
+        <h3>Abdominales con giro ruso</h3>
+          <p>Series: 4 </p>
+          <p>Repeticiones: 12-15 por lado</p>
+      </div>
+    <div class="imagen-ejercicio">
+        <img src="giro ruso.gif" alt="Superman">
+    </div>
+    <div class="marcado-ejercicio">
+        <input type="checkbox" id="ejercicio14" onchange="marcarEjercicio('ejercicio14')">
+        <label for="ejercicio14"></label>
+    </div>
+</div>
+<div class="ejercicio">
+    <div class="detalle-ejercicio">
+        <h3>Postura</h3>
+          <p>Series: 4 </p>
+          <p>Repeticiones:20 - 30 segundos</p>
+      </div>
+    <div class="imagen-ejercicio">
+        <img src="postura.jpg" alt="Superman">
+    </div>
+    <div class="marcado-ejercicio">
+        <input type="checkbox" id="ejercicio15" onchange="marcarEjercicio('ejercicio15')">
+        <label for="ejercicio15"></label>
+    </div>
+</div>
+<div class="ejercicio">
+    <div class="detalle-ejercicio">
+        <h3>Espinales</h3>
+          <p>Series: 4 </p>
+          <p>Repeticiones:15 a 20 segundos</p>
+      </div>
+    <div class="imagen-ejercicio">
+        <img src="ESPINALES.gif" alt="Superman">
+    </div>
+    <div class="marcado-ejercicio">
+        <input type="checkbox" id="ejercicio16" onchange="marcarEjercicio('ejercicio16')">
+        <label for="ejercicio16"></label>
+    </div>
+</div>
+    </div>
 <div id="info-personal" class="info-personal tabla-rutina">
   <h2>Mi Información</h2>
   <div class="detalle-info">

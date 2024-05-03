@@ -49,44 +49,63 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
-  var temporizador; // Variable global para almacenar el identificador del temporizador
-  var tiempo = 60; // Tiempo inicial en segundos
-  var corriendo = false; // Variable para controlar si el temporizador está corriendo o pausado
-  
-  function iniciarTemporizador() {
-      var boton = document.getElementById("boton-temporizador");
-      if (!corriendo) { // Si el temporizador no está corriendo, iniciarlo
-          temporizador = setInterval(actualizarTemporizador, 1000); // Iniciar el temporizador
-          corriendo = true; // Actualizar el estado a corriendo
-          boton.innerHTML = "Pausar"; // Cambiar el texto del botón a "Pausar"
-      } else { // Si el temporizador está corriendo, pausarlo
-          clearInterval(temporizador); // Detener el temporizador
-          corriendo = false; // Actualizar el estado a pausado
-          boton.innerHTML = "Reanudar"; // Cambiar el texto del botón a "Reanudar"
-      }
-  }
-  
-  function actualizarTemporizador() {
-      var minutos = Math.floor(tiempo / 60);
-      var segundos = tiempo % 60;
-  
-      // Agregar un cero delante si los segundos son menores a 10
-      if (segundos < 10) {
-          segundos = "0" + segundos;
-      }
-  
-      // Actualizar el texto del temporizador
-      document.getElementById("tiempo-restante").innerHTML = minutos + ":" + segundos;
-  
-      // Disminuir el tiempo
-      tiempo--;
-  
-      // Cuando el tiempo llega a cero, detener el temporizador
-      if (tiempo < 0) {
-          clearInterval(temporizador);
-          alert("¡Tiempo terminado!");
-      }
-  }
+var temporizador; // Variable global para almacenar el identificador del temporizador
+var tiempo = 60; // Tiempo inicial en segundos
+var corriendo = false; // Variable para controlar si el temporizador está corriendo o pausado
+
+function disminuirTiempo() {
+    if (tiempo > 0) {
+        tiempo--; // Disminuir el tiempo en 1 segundo
+        actualizarVisualizacionTiempo(); // Actualizar la visualización del tiempo
+    }
+}
+
+function incrementarTiempo() {
+    tiempo++; // Incrementar el tiempo en 1 segundo
+    actualizarVisualizacionTiempo(); // Actualizar la visualización del tiempo
+}
+
+function actualizarVisualizacionTiempo() {
+    var minutos = Math.floor(tiempo / 60);
+    var segundos = tiempo % 60;
+
+    // Agregar un cero delante si los segundos son menores a 10
+    if (segundos < 10) {
+        segundos = "0" + segundos;
+    }
+
+    // Actualizar el texto del temporizador
+    document.getElementById("tiempo-restante").innerHTML = minutos + ":" + segundos;
+}
+
+function iniciarTemporizador() {
+    var boton = document.getElementById("boton-temporizador");
+
+    if (!corriendo) { // Si el temporizador no está corriendo, iniciarlo
+        clearInterval(temporizador); // Limpiar cualquier temporizador anterior
+        tiempo = 60; // Reiniciar el tiempo a 1 minuto
+        actualizarVisualizacionTiempo(); // Actualizar la visualización del tiempo
+        temporizador = setInterval(actualizarTemporizador, 1000); // Iniciar el temporizador
+        corriendo = true; // Actualizar el estado a corriendo
+        boton.innerHTML = "Pausar"; // Cambiar el texto del botón a "Pausar"
+    } else { // Si el temporizador está corriendo, pausarlo
+        clearInterval(temporizador); // Detener el temporizador
+        corriendo = false; // Actualizar el estado a pausado
+        boton.innerHTML = "Reanudar"; // Cambiar el texto del botón a "Reanudar"
+    }
+}
+
+function actualizarTemporizador() {
+    if (tiempo > 0) {
+        tiempo--; // Disminuir el tiempo en 1 segundo
+        actualizarVisualizacionTiempo(); // Actualizar la visualización del tiempo
+    } else {
+        clearInterval(temporizador); // Detener el temporizador cuando el tiempo llegue a cero
+        corriendo = false; // Actualizar el estado a pausado
+        document.getElementById("boton-temporizador").innerHTML = "Iniciar"; // Cambiar el texto del botón a "Iniciar"
+    }
+}
+
   function toggleMenu() {
     var menu = document.querySelector('.botones-dias');
     menu.classList.toggle('active');
