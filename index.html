@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rutina de Entrenamiento</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="login-container">
+        <h4>Mi rutina Personalizada </h4>
+        <h1>Inicio de sesión</h1>
+        <form id="login-form">
+          <label for="password">Contraseña:</label>
+          <input type="password" id="password" name="password">
+          <button type="submit">Iniciar sesión</button>
+        </form>
+      </div>
+      <div id="overlay"></div> <!-- Div para cubrir toda la pantalla -->
+
+    
+      <div id="content" class="hidden">
+    <div class="header">
+        <h1>Rutina de Entrenamiento</h1>
+        <h2> Maria</h2> 
+      </div>
+      <div class="container">
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="botones-dias" id="botones-dias">
+            <button onclick="mostrarTabla('lunes')">Lunes</button>
+            <button onclick="mostrarTabla('martes')">Martes</button>
+            <button onclick="mostrarTabla('miercoles')">Miércoles</button>
+            <button onclick="mostrarTabla('Jueves')">Jueves</button>
+            <button onclick="mostrarTabla('informacion')">Mi Información</button>
+            <button onclick="mostrarTabla('recomendacion')">Recomendaciones</button>
+
+
+        </div>
+    </div>
+    
+    
+    <div id="tabla-lunes" class="tabla-rutina">
+        <h2>Lunes</h2>
+        <div class="ejercicio">
+            <div class="detalle-ejercicio">
+                <h3>Press de banca con barra inclinado</h3>
+                <p>Series: 4</p>
+                <p>Repeticiones: 8-10</p>
+            </div>
+            <div class="imagen-ejercicio">
+                <img src="press-inclinado.jpg" alt="Press de banca con barra inclinado">
+            </div>
+            <div class="marcado-ejercicio">
+                <input type="checkbox" id="ejercicio1" onchange="marcarEjercicio('ejercicio1')">
+                <label for="ejercicio1"></label>
+            </div>
+        </div>
+        <div class="ejercicio">
+            <div class="detalle-ejercicio">
+                <h3>Extensiones de tríceps con mancuernas</h3>
+                <p>Series: 4</p>
+                <p>Repeticiones: 8-10</p>
+            </div>
+            <div class="imagen-ejercicio">
+                <img src="triceps con mancuerna.jpg" alt="Extensiones de tríceps con mancuernas">
+            </div>
+            <div class="marcado-ejercicio">
+                <input type="checkbox" id="ejercicio2" onchange="marcarEjercicio('ejercicio2')">
+                <label for="ejercicio2"></label>
+            </div>
+        </div>
+        <div class="ejercicio">
+            <div class="detalle-ejercicio">
+                <h3>Vuelo frontal</h3>
+                <p>Series: 4</p>
+                <p>Repeticiones: 8-10</p>
+            </div>
+            <div class="imagen-ejercicio">
+                <img src="vuelo frontnal .jpg" alt="Vuelo frontal">
+            </div>
+            <div class="marcado-ejercicio">
+                <input type="checkbox" id="ejercicio3" onchange="marcarEjercicio('ejercicio3')">
+                <label for="ejercicio3"></label>
+            </div>
+        </div>
+        <div class="ejercicio">
+            <div class="detalle-ejercicio">
+                <h3>Flexiones de brazos</h3>
+                <p>Series: 4</p>
+                <p>Repeticiones: 10-12</p>
+            </div>
+            <div class="imagen-ejercicio">
+                <img src="flexiones.jpg" alt="Flexiones de brazos">
+            </div>
+            <div class="marcado-ejercicio">
+                <input type="checkbox" id="ejercicio4" onchange="marcarEjercicio('ejercicio4')">
+                <label for="ejercicio4"></label>
+            </div>
+        </div>
+        <div class="ejercicio">
+            <div class="detalle-ejercicio">
+                <h3>Press militar de hombros</h3>
+                <p>Series: 4</p>
+                <p>Repeticiones: 10-12</p>
+            </div>
+            <div class="imagen-ejercicio">
+                <img src="press militar.jpg" alt="Press militar de hombros">
+            </div>
+            <div class="marcado-ejercicio">
+                <input type="checkbox" id="ejercicio5" onchange="marcarEjercicio('ejercicio5')">
+                <label for="ejercicio5"></label>
+            </div>
+        </div>
+        <div class="ejercicio">
+            <div class="detalle-ejercicio">
+                <h3>Vuelos laterales</h3>
+                <p>Series: 4</p>
+                <p>Repeticiones: 10-12</p>
+            </div>
+            <div class="imagen-ejercicio">
+                <img src="vuelos laterales.jpg" alt="Vuelos laterales">
+            </div>
+            <div class="marcado-ejercicio">
+                <input type="checkbox" id="ejercicio6" onchange="marcarEjercicio('ejercicio6')">
+                <label for="ejercicio6"></label>
+            </div>
+        </div>
+        <div class="ejercicio">
+            <div class="detalle-ejercicio">
+                <h3>Extensiones de tríceps en polea alta</h3>
+                <p>Series: 4</p>
+                <p>Repeticiones: 10-12</p>
+            </div>
+            <div class="imagen-ejercicio">
+                <img src="triceps en polea.jpg" alt="Extensiones de tríceps en polea alta">
+            </div>
+            <div class="marcado-ejercicio">
+                <input type="checkbox" id="ejercicio7" onchange="marcarEjercicio('ejercicio7')">
+                <label for="ejercicio7"></label>
+            </div>
+        </div>
+        <div class="ejercicio">
+            <div class="detalle-ejercicio">
+                <h3>Peck deck</h3>
+                <p>Series: 4</p>
+                <p>Repeticiones: 10-12</p>
+            </div>
+            <div class="imagen-ejercicio">
+                <img src="peck deck.jpg" alt="Peck deck">
+            </div>
+            <div class="marcado-ejercicio">
+                <input type="checkbox" id="ejercicio8" onchange="marcarEjercicio('ejercicio8')">
+                <label for="ejercicio8"></label>
+            </div>
+        </div>
+        <div class="ejercicio">
+            <div class="detalle-ejercicio">
+                <h3>Aperturas con mancuernas</h3>
+                <p>Series: 4</p>
+                <p>Repeticiones: 10-12</p>
+            </div>
+            <div class="imagen-ejercicio">
+                <img src="4e9e7379781bf19eeccb4a767391e600.jpg" alt="Aperturas con mancuernas">
+            </div>
+            <div class="marcado-ejercicio">
+                <input type="checkbox" id="ejercicio9" onchange="marcarEjercicio('ejercicio9')">
+                <label for="ejercicio9"></label>
+            </div>
+        </div>
+        <div class="ejercicio">
+            <div class="detalle-ejercicio">
+                <h3>Fondo tríceps</h3>
+                <p>Series: 4</p>
+                <p>Repeticiones: Al fallo</p>
+            </div>
+            <div class="imagen-ejercicio">
+                <img src="fondo.jpg" alt="Fondo tríceps">
+            </div>
+            <div class="marcado-ejercicio">
+                <input type="checkbox" id="ejercicio10" onchange="marcarEjercicio('ejercicio10')">
+                <label for="ejercicio10"></label>
+            </div>
+        </div>
+    </div>
+
+    <div id="tabla-martes" class="tabla-rutina">
+      <h2>Martes</h2>
+      <div class="ejercicio">
+          <div class="detalle-ejercicio">
+              <h3>Dominadas</h3>
+              <p>Series: 4</p>
+              <p>Repeticiones: 8-10</p>
+          </div>
+      </div>
+      <div class="ejercicio">
+          <div class="detalle-ejercicio">
+              <h3>Remo con barra</h3>
+              <p>Series: 4</p>
+              <p>Repeticiones: 8-10</p>
+          </div>
+      </div>
+      <div class="ejercicio">
+          <div class="detalle-ejercicio">
+              <h3>Pulldown en polea alta</h3>
+              <p>Series: 4</p>
+              <p>Repeticiones: 8-10</p>
+          </div>
+      </div>
+      <div class="ejercicio">
+          <div class="detalle-ejercicio">
+              <h3>Remo con mancuerna a un brazo</h3>
+              <p>Series: 4</p>
+              <p>Repeticiones: 8-10</p>
+          </div>
+      </div>
+      <div class="ejercicio">
+          <div class="detalle-ejercicio">
+              <h3>Curl de bíceps con barra</h3>
+              <p>Series: 4</p>
+              <p>Repeticiones: 10-12</p>
+          </div>
+      </div>
+      <div class="ejercicio">
+          <div class="detalle-ejercicio">
+              <h3>Curl de bíceps martillo con mancuernas</h3>
+              <p>Series: 4</p>
+              <p>Repeticiones: 10-12</p>
+          </div>
+      </div>
+      <div class="ejercicio">
+          <div class="detalle-ejercicio">
+              <h3>Peso muerto rumano con barra</h3>
+              <p>Series: 4</p>
+              <p>Repeticiones: 10-12</p>
+          </div>
+      </div>
+      <div class="ejercicio">
+          <div class="detalle-ejercicio">
+              <h3>Hiperextensiones lumbares</h3>
+              <p>Series: 4</p>
+              <p>Repeticiones: 10-12</p>
+          </div>
+      </div>
+      <div class="ejercicio">
+          <div class="detalle-ejercicio">
+              <h3>Encogimientos de hombros con mancuernas</h3>
+              <p>Series: 4</p>
+              <p>Repeticiones: 10-12</p>
+          </div>
+      </div>
+      <div class="ejercicio">
+          <div class="detalle-ejercicio">
+              <h3>Facepulls con cuerda</h3>
+              <p>Series: 4</p>
+              <p>Repeticiones: 10-12</p>
+          </div>
+      </div>
+  </div>
+  
+    
+  <div id="tabla-miercoles" class="tabla-rutina">
+    <h2>Miércoles</h2>
+    <div class="ejercicio">
+        <div class="detalle-ejercicio">
+            <h3>Sentadillas</h3>
+            <p>Series: 4</p>
+            <p>Repeticiones: 8-10</p>
+        </div>
+    </div>
+    <div class="ejercicio">
+        <div class="detalle-ejercicio">
+            <h3>Prensa de piernas</h3>
+            <p>Series: 4</p>
+            <p>Repeticiones: 8-10</p>
+        </div>
+    </div>
+    <div class="ejercicio">
+        <div class="detalle-ejercicio">
+            <h3>Extensiones de piernas</h3>
+            <p>Series: 4</p>
+            <p>Repeticiones: 8-10</p>
+        </div>
+    </div>
+    <div class="ejercicio">
+        <div class="detalle-ejercicio">
+            <h3>Curl de piernas acostado</h3>
+            <p>Series: 4</p>
+            <p>Repeticiones: 8-10</p>
+        </div>
+    </div>
+    <div class="ejercicio">
+        <div class="detalle-ejercicio">
+            <h3>Elevación de talones</h3>
+            <p>Series: 4</p>
+            <p>Repeticiones: 12-15</p>
+        </div>
+    </div>
+    <div class="ejercicio">
+        <div class="detalle-ejercicio">
+            <h3>Zancadas con barra</h3>
+            <p>Series: 4</p>
+            <p>Repeticiones: 10-12</p>
+        </div>
+    </div>
+    <div class="ejercicio">
+        <div class="detalle-ejercicio">
+            <h3>Peso muerto rumano con barra</h3>
+            <p>Series: 4</p>
+            <p>Repeticiones: 10-12</p>
+        </div>
+    </div>
+    <div class="ejercicio">
+        <div class="detalle-ejercicio">
+            <h3>Prensa de pantorrillas</h3>
+            <p>Series: 4</p>
+            <p>Repeticiones: 12-15</p>
+        </div>
+    </div>
+    <div class="ejercicio">
+        <div class="detalle-ejercicio">
+            <h3>Extensiones de cadera con banda elástica</h3>
+            <p>Series: 4</p>
+            <p>Repeticiones: 12-15</p>
+        </div>
+    </div>
+    <div class="ejercicio">
+        <div class="detalle-ejercicio">
+            <h3>Elevaciones de pierna en máquina</h3>
+            <p>Series: 4</p>
+            <p>Repeticiones: 12-15</p>
+        </div>
+    </div>
+    <div class="ejercicio">
+        <div class="detalle-ejercicio">
+            <h3>Abducciones de cadera en máquina</h3>
+            <p>Series: 4</p>
+            <p>Repeticiones: 12-15</p>
+        </div>
+    </div>
+</div>
+<div id="tabla-Jueves" class="tabla-rutina">
+  <h2>Jueves</h2>
+  <div id="temporizador">
+    <h2>Temporizador de Planchas</h2>
+    <p id="tiempo-restante">1:00</p>
+    <button id="boton-temporizador" onclick="iniciarTemporizador()">Iniciar</button>
+</div>
+
+  <div class="ejercicio">
+      <div class="detalle-ejercicio">
+          <h3>Crunches</h3>
+          <p>Series: 4</p>
+          <p>Repeticiones: 15-20</p>
+      </div>
+  </div>
+  <div class="ejercicio">
+      <div class="detalle-ejercicio">
+          <h3>Plancha lateral</h3>
+          <p>Series: 4</p>
+          <p>Repeticiones: 30-45 segundos</p>
+      </div>
+  </div>
+  <div class="ejercicio">
+      <div class="detalle-ejercicio">
+          <h3>Elevaciones de piernas colgadas</h3>
+          <p>Series: 4</p>
+          <p>Repeticiones: 10-12</p>
+      </div>
+  </div>
+  <div class="ejercicio">
+      <div class="detalle-ejercicio">
+          <h3>Twist ruso con peso</h3>
+          <p>Series: 4</p>
+          <p>Repeticiones: 15-20 por lado</p>
+      </div>
+  </div>
+  <div class="ejercicio">
+      <div class="detalle-ejercicio">
+          <h3>Crunches en máquina</h3>
+          <p>Series: 4</p>
+          <p>Repeticiones: 15-20</p>
+      </div>
+  </div>
+  <div class="ejercicio">
+      <div class="detalle-ejercicio">
+          <h3>Flexiones de tronco en suelo</h3>
+          <p>Series: 4</p>
+          <p>Repeticiones: al fallo</p>
+      </div>
+  </div>
+  <div class="ejercicio">
+      <div class="detalle-ejercicio">
+          <h3>Rotación de tronco con barra</h3>
+          <p>Series: 4</p>
+          <p>Repeticiones: 15-20 por lado</p>
+      </div>
+  </div>
+  <div class="ejercicio">
+      <div class="detalle-ejercicio">
+          <h3>Crunches en polea alta</h3>
+          <p>Series: 4</p>
+          <p>Repeticiones: 15-20</p>
+      </div>
+  </div>
+  <div class="ejercicio">
+      <div class="detalle-ejercicio">
+          <h3>Plancha con elevación de pierna</h3>
+          <p>Series: 4</p>
+          <p>Repeticiones: 10-12 por lado</p>
+      </div>
+  </div>
+  <div class="ejercicio">
+      <div class="detalle-ejercicio">
+          <h3>Crunches invertidos</h3>
+          <p>Series: 4</p>
+          <p>Repeticiones: 15-20</p>
+      </div>
+  </div>
+  <div class="ejercicio">
+      <div class="detalle-ejercicio">
+          <h3>Crunches con bola suiza</h3>
+          <p>Series: 4</p>
+          <p>Repeticiones: 15-20</p>
+      </div>
+  </div>
+</div>
+
+<div id="info-personal" class="info-personal tabla-rutina">
+  <h2>Mi Información</h2>
+  <div class="detalle-info">
+      <div class="info-titulo"><strong>Nombre:</strong></div>
+      <div class="info-dato">Maria</div>
+  </div>
+  <div class="detalle-info">
+      <div class="info-titulo"><strong>Apellido:</strong></div>
+      <div class="info-dato">******</div>
+  </div>
+  <div class="detalle-info">
+      <div class="info-titulo"><strong>Peso:</strong></div>
+      <div class="info-dato">60 kg</div>
+  </div>
+  <div class="detalle-info">
+      <div class="info-titulo"><strong>Altura:</strong></div>
+      <div class="info-dato">165 cm</div>
+  </div>
+  <div class="detalle-info">
+      <div class="info-titulo"><strong>Edad:</strong></div>
+      <div class="info-dato">*****</div>
+  </div>
+  <div class="detalle-info">
+      <div class="info-titulo"><strong>Objetivo:</strong></div>
+      <div class="info-dato">Ganar masa muscular</div>
+  </div>
+  <div class="detalle-info">
+      <div class="info-titulo"><strong>Lesiones:</strong></div>
+      <div class="info-dato">Ninguna</div>
+  </div>
+  <div class="detalle-info">
+      <div class="info-titulo"><strong>Enfermedades:</strong></div>
+      <div class="info-dato">Ninguna</div>
+  </div>
+</div>
+<div id="recomendacion" class="recomendacion tabla-rutina">
+    <h2>Recomendaciones para el gimnasio</h2>
+    <div class="detalle-info Recomendaciones">
+        <div class="info-titulo"><strong>1. Calentamiento antes del entrenamiento:</strong></div>
+        <div class="info-dato">Realiza al menos 5 minutos de calentamiento para preparar tu cuerpo para el ejercicio.</div>
+    </div>
+    <div class="detalle-info Recomendaciones">
+        <div class="info-titulo"><strong>2. Hidratación durante el entrenamiento:</strong></div>
+        <div class="info-dato">Bebe agua antes, durante y después del entrenamiento para mantenerte hidratado.</div>
+    </div>
+    <div class="detalle-info Recomendaciones">
+        <div class="info-titulo"><strong>3. Forma correcta en los ejercicios:</strong></div>
+        <div class="info-dato">Asegúrate de mantener una buena forma en todos tus ejercicios para evitar lesiones.</div>
+    </div>
+    <div class="detalle-info Recomendaciones">
+        <div class="info-titulo"><strong>4. Descanso entre series:</strong></div>
+        <div class="info-dato">Descansa al menos 1 minuto entre cada serie para permitir que tus músculos se recuperen.</div>
+    </div>
+    <div class="detalle-info Recomendaciones">
+        <div class="info-titulo"><strong>5. Estiramiento después del entrenamiento:</strong></div>
+        <div class="info-dato">Realiza estiramientos para ayudar a tu cuerpo a recuperarse después del entrenamiento.</div>
+    </div>
+</div>
+
+
+
+<!-- Agrega este elemento al final del body -->
+<div id="alertaentreejercicio" style="display: none;" class="alertaentreejercicio">
+    <div class="contenido-alerta">
+        <span onclick="cerrarAlerta()" class="cerrar">&times;</span>
+        <p>¡Atención! ya pasaron más de 10 minutos sin marcar el siguiente ejercicio.</p>
+    </div>
+</div>
+
+<script src="script.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
