@@ -106,8 +106,7 @@ body {
     margin-bottom: 5px;
     border-bottom:solid 1px #ccc;
 }
-.completado {
-    background-color: #3be43b; /* Color de fondo verde claro */
+.completado {    background-color: #407ea7; 
 }
   /* Estilo para el cuadro de marcado */
   .marcado-ejercicio input[type="checkbox"] {
