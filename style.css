@@ -62,8 +62,32 @@ body {
     text-align: center;
     padding-top: 200px; /* Ajusta el espacio desde arriba */
 }
+#login-container {
+    text-align: center;
+    width: 100%; /* Asegura que el contenedor ocupe todo el ancho disponible */
+  }
 
+  .logo-container {
+    display: inline-block;
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+  }
 
+  .logo   {
+    max-width: 70%; /* Asegura que el logo no sea más ancho que el contenedor */
+    width: 300px; /* Ajusta el tamaño según sea necesario */
+    height: auto; /* Mantiene la proporción de aspecto */
+    filter: drop-shadow(0px 0px 5px rgb(245, 245, 247)); /* Ajusta el valor de desenfoque según sea necesario */
+
+    border-radius: 50%;
+  }
+  .logo1   {
+    max-width: 60%; /* Asegura que el logo no sea más ancho que el contenedor */
+    width: 150px; /* Ajusta el tamaño según sea necesario */
+    height: auto; /* Mantiene la proporción de aspecto */
+    filter: drop-shadow(0px 0px 5px rgba(245, 245, 247, 0.212)); /* Ajusta el valor de desenfoque según sea necesario */
+
+    border-radius: 50%;
+  }
 #overlay, #alertaentreejercicio p {
     font-size: 25px;
     

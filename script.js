@@ -1,6 +1,6 @@
 function mostrarTabla(dia) {
   // Ocultar todas las tablas
-  var tablas = document.querySelectorAll('.tabla-rutina , .recomendacion');
+  var tablas = document.querySelectorAll('.tabla-rutina , .recomendacion, .informacion');
   tablas.forEach(function(tabla) {
     tabla.classList.remove('active');
   });
@@ -15,20 +15,24 @@ function mostrarTabla(dia) {
   var infoPersonal = document.getElementById('info-personal');
   if (dia === 'informacion' && infoPersonal) {
     infoPersonal.classList.add('active');
+    infoPersonal.scrollIntoView({ behavior: 'smooth' }); // Hacer scroll a la información personal
   } else {
     infoPersonal.classList.remove('active');
   }
 
-  // Mostrar la información personal si se selecciona
+  // Mostrar la recomendación si se selecciona
   var recomendacion = document.getElementById('recomendacion');
   if (dia === 'recomendacion' && recomendacion) {
     recomendacion.classList.add('active');
+    recomendacion.scrollIntoView({ behavior: 'smooth' }); // Hacer scroll a la recomendación
   } else {
-recomendacion.classList.remove('active');
+    recomendacion.classList.remove('active');
   }
 
   // Hacer scroll al contenido
-  tablaDia.scrollIntoView({ behavior: 'smooth' });
+  if (!infoPersonal.classList.contains('active') && !recomendacion.classList.contains('active')) {
+    tablaDia.scrollIntoView({ behavior: 'smooth' });
+  }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -41,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const password = loginForm.password.value;
   
       // Verificar si la contraseña es correcta (aquí puedes establecer tu propia lógica)
-      if (password === '12345') {
+      if (password === '40195674') {
         loginContainer.classList.add('hidden');
         content.classList.remove('hidden');
       } else {
@@ -124,7 +128,9 @@ function actualizarTemporizador() {
       temporizadorentreejercicios = setTimeout(function() {
           mostrarAlertaentreejercicio(); // Llamada a la función para mostrar la alerta si pasa el tiempo límite
       }, tiempoLimite);
-      verificarDiaCompleto(); // Llamar a la función para verificar si el día está completo
+      verificarLunesCompleto(); // Llamar a la función para verificar si el día está completo
+      verificarMartesCompleto();
+      verificarMiercolesCompleto();
   }
   
   function mostrarAlerta() {
@@ -138,20 +144,52 @@ function actualizarTemporizador() {
       document.getElementById("alertaentreejercicio").style.display = "none"; // Ocultar la alerta
   }
   
-  function verificarDiaCompleto() {
-      var ejerciciosDelDia = document.querySelectorAll('#tabla-lunes .marcado-ejercicio input[type="checkbox"]');
-      var todosCompletados = true;
-      ejerciciosDelDia.forEach(function(ejercicio) {
-          if (!ejercicio.checked) {
-              todosCompletados = false;
-              return;
-          }
-      });
-      if (todosCompletados) {
-          // Mostrar overlay
-          document.getElementById("overlay").style.display = "block";
-          document.getElementById("overlay").innerHTML = "<p>¡Felicidades!<br> Completaste todos los <br> ejercicios del día.<br> Podés volver a casa feliz.</p>";
-          document.getElementById("alertaentreejercicio").style.display = "none"; // Ocultar la alerta
+  function verificarLunesCompleto() {
+    var ejerciciosDelDia = document.querySelectorAll('#tabla-lunes .marcado-ejercicio input[type="checkbox"]');
+    var todosCompletados = true;
+    ejerciciosDelDia.forEach(function(ejercicio) {
+        if (!ejercicio.checked) {
+            todosCompletados = false;
+            return;
         }
+    });
+    if (todosCompletados) {
+        // Mostrar overlay
+        document.getElementById("overlay").style.display = "block";
+        document.getElementById("overlay").innerHTML = "<p>¡Felicidades!<br> Completaste todos los <br> ejercicios del día.<br> Podés volver a casa feliz.</p>";
+        document.getElementById("alertaentreejercicio").style.display = "none"; // Ocultar la alerta
+    }
+}
+
+function verificarMartesCompleto() {
+    var ejerciciosDelDia = document.querySelectorAll('#tabla-martes .marcado-ejercicio input[type="checkbox"]');
+    var todosCompletados = true;
+    ejerciciosDelDia.forEach(function(ejercicio) {
+        if (!ejercicio.checked) {
+            todosCompletados = false;
+            return;
+        }
+    });
+    if (todosCompletados) {
+        // Mostrar overlay
+        document.getElementById("overlay").style.display = "block";
+        document.getElementById("overlay").innerHTML = "<p>¡Felicidades!<br> Completaste todos los <br> ejercicios del día.<br> Podés volver a casa feliz.</p>";
+        document.getElementById("alertaentreejercicio").style.display = "none"; // Ocultar la alerta
+    }
+}
+function verificarMiercolesCompleto() {
+  var ejerciciosDelDia = document.querySelectorAll('#tabla-miercoles .marcado-ejercicio input[type="checkbox"]');
+  var todosCompletados = true;
+  ejerciciosDelDia.forEach(function(ejercicio) {
+      if (!ejercicio.checked) {
+          todosCompletados = false;
+          return;
+      }
+  });
+  if (todosCompletados) {
+      // Mostrar overlay
+      document.getElementById("overlay").style.display = "block";
+      document.getElementById("overlay").innerHTML = "<p>¡Felicidades!<br> Completaste todos los <br> ejercicios del día.<br> Podés volver a casa feliz.</p>";
+      document.getElementById("alertaentreejercicio").style.display = "none"; // Ocultar la alerta
   }
-  
+}
